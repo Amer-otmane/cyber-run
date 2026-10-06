@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cj4wqf354wn34"]
+
+[ext_resource type="Script" uid="uid://cpcq8vsca100l" path="res://world.gd" id="1_dmrlw"]
+[ext_resource type="Script" uid="uid://crsy17eyp6yqb" path="res://player.gd" id="1_oex3p"]
+[ext_resource type="PackedScene" uid="uid://b7j1k86jymkjs" path="res://models/cyber_train.glb" id="3_8ce7h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oex3p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dmrlw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ce7h"]
+albedo_color = Color(0.039215688, 0.039215688, 0.11764706, 1)
+emission_enabled = true
+emission = Color(0, 0.78431374, 1, 1)
+emission_energy_multiplier = 3.14
+
+[node name="Node3D" type="Node3D" unique_id=1816648497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68748504, -0.117112756, 0)
+script = ExtResource("1_dmrlw")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=315288188]
+script = ExtResource("1_oex3p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=312527530]
+mesh = SubResource("CapsuleMesh_oex3p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1586529969]
+shape = SubResource("CapsuleShape3D_dmrlw")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=961322359]
+transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 3, 4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1133631280]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+shadow_enabled = true
+
+[node name="cyber_train" parent="." unique_id=25030721 instance=ExtResource("3_8ce7h")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=919303839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -100)
+use_collision = true
+size = Vector3(6, 0.5, 300)
+material = SubResource("StandardMaterial3D_8ce7h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=181559841]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer" unique_id=97973156]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER - Appuie sur R"
+
+[node name="cyber_train2" parent="." unique_id=971690944 instance=ExtResource("3_8ce7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.923853, 0.11711466, 3.578104)

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhdqbiehobfmd"]
+
+[ext_resource type="Script" uid="uid://1efgqjk0utf2" path="res://cutscene.gd" id="1_ix241"]
+[ext_resource type="PackedScene" uid="uid://cjsuh5i8ao7x0" path="res://models/Futuristic Apartment_Cycles.glb" id="2_8vcau"]
+
+[node name="Node3D" type="Node3D" unique_id=1238702892]
+script = ExtResource("1_ix241")
+
+[node name="BI" parent="." unique_id=424048652 instance=ExtResource("2_8vcau")]
